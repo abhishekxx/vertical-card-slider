@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animate on scroll</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(120deg, #ff7eb3, #ff758c, #ff5858);
+            overflow: hidden;
+        }
+
+        .card-container {
+            width: 400px;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .card {
+            position: absolute;
+            width: 350px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            animation: slideUp 15s infinite;
+            transition: transform 0.2s ease, opacity 0.2s ease; 
+            opacity: 0; 
+            transform: scale(0.7); 
+        }
+
+
+        .placeholder-image {
+            width: 100%;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card .header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .header .title-bar {
+            width: 150px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        .content .line {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+
+         .card:nth-child(1) {
+            animation-delay: -3s;
+        }
+
+         .card:nth-child(2) {
+            animation-delay: 0s;
+        }
+
+         .card:nth-child(3) {
+            animation-delay: 3s;
+        }
+
+         .card:nth-child(4) {
+            animation-delay: 6s;
+        }
+
+         .card:nth-child(5) {
+            animation-delay: 9s;
+        }
+
+         .card:nth-child(6) {
+            animation-delay: 12s;
+        }
+
+         .card:nth-child(7) {
+            animation-delay: 15s;
+        }
+
+         .card:nth-child(8) {
+            animation-delay: 18s;
+        }
+
+         .card:nth-child(9) {
+            animation-delay: 21s;
+        }
+
+         .card:nth-child(10) {
+            animation-delay: 24s;
+        }
+
+         .card:nth-child(11) {
+            animation-delay: 27s;
+        }
+
+         .card:nth-child(12) {
+            animation-delay: 30s;
+        }
+
+         .card:nth-child(13) {
+            animation-delay: 33s;
+        }
+
+         .card:nth-child(14) {
+            animation-delay: 36s;
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(100%) scale(0.5);
+                opacity: 0;
+            }
+
+            5%,
+            20% {
+                transform: translateY(100%) scale(0.7);
+                opacity: 0.4;
+            }
+
+            25%,
+            40% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            45%,
+            60% {
+                transform: translateY(-100%) scale(0.7);
+                opacity: 0.4;
+            }
+
+            65%,
+            100% {
+                transform: translateY(-100%) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+    <div class="card-container" id="card-container">
+
+    </div>
+    </div>
+
+    <script>
+        const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+        const container = document.getElementById('card-container');
+
+        items.forEach(() => {
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            card.innerHTML = `
+                <div class="placeholder-image"></div>
+                <div class="header">
+                    <div class="avatar"></div>
+                    <div class="title-bar"></div>
+                </div>
+                <div class="content">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            `;
+
+            container.appendChild(card);
+        });
+    </script>
+</body>
+
+</html>
